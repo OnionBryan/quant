@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Early-Stage Ventures Break Through Capital Barriers - DBA Research</title>
+    <style>
+        :root {
+            --navy: #003057;
+            --gold: #B3A369;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-dark);
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 48, 87, 0.15);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px 80px;
+            min-height: 700px;
+            position: relative;
+            border-left: 8px solid var(--navy);
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-header {
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .slide-title {
+            font-size: 36px;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .slide-content {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .bullet-list li {
+            margin: 18px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .bullet-list li:before {
+            content: "■";
+            color: var(--gold);
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+        }
+
+        .bullet-list li strong {
+            color: var(--navy);
+        }
+
+        .literature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .lit-box {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--navy);
+        }
+
+        .lit-box h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .lit-box p {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .gap-statement {
+            background: #fff8e1;
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 6px;
+        }
+
+        .gap-statement strong {
+            color: var(--navy);
+        }
+
+        .hypothesis-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .hypothesis-list li {
+            margin: 18px 0;
+            padding: 15px 15px 15px 50px;
+            background: var(--light-bg);
+            border-radius: 6px;
+            position: relative;
+            font-size: 17px;
+        }
+
+        .hypothesis-list li:before {
+            content: "H";
+            color: white;
+            background: var(--gold);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .method-box {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--navy);
+        }
+
+        .method-box h4 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .method-box ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .method-box ul li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .method-box ul li:before {
+            content: "▸";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--navy);
+            color: white;
+        }
+
+        .nav-button {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #d4ba6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicator {
+            display: flex;
+            gap: 10px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .title-slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--navy) 0%, #004a7c 100%);
+            color: white;
+            border-left: none;
+        }
+
+        .title-slide .main-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            max-width: 900px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+
+        .title-slide .author-info {
+            font-size: 18px;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        .section-divider.active {
+            background: linear-gradient(135deg, var(--navy) 0%, #004a7c 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-left: none;
+        }
+
+        .section-divider h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-divider p {
+            font-size: 20px;
+            color: var(--gold);
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+                min-height: 600px;
+            }
+
+            .slide-title {
+                font-size: 28px;
+            }
+
+            .literature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 0: Title Slide -->
+        <div class="slide title-slide active">
+            <div class="main-title">How Early-Stage Ventures Break Through Capital Barriers: Why Intermediaries Matter in Low-Capital Markets</div>
+            <div class="subtitle">A Doctoral Research Proposal</div>
+            <div class="author-info">
+                <div>DBA Program - Dr. Nargundkar</div>
+                <div style="margin-top: 10px;">November 2025</div>
+            </div>
+        </div>
+
+        <!-- Section 1: INTRODUCTION -->
+        <div class="slide section-divider">
+            <h1>Part I</h1>
+            <p>Introduction</p>
+        </div>
+
+        <!-- Slide 1: The Atlanta Puzzle -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">The Atlanta Puzzle</div>
+                <div class="slide-subtitle">Context & Motivation</div>
+            </div>
+            <div class="slide-content">
+                <ul class="bullet-list">
+                    <li><strong>The Paradox:</strong> Atlanta is a top-tier U.S. city with Fortune 500 headquarters, world-class universities (Georgia Tech), and a thriving logistics hub—yet founders struggle to secure investor meetings in ways that San Francisco or Boston founders do not.</li>
+                    <li><strong>The Structural Deficit:</strong> San Francisco has approximately 12 venture capital firms per 100,000 residents; Atlanta has less than 1 (Sorenson & Stuart, 2001). <em>This is a 15-to-1 deficit.</em></li>
+                    <li><strong>The Consequence:</strong> Many talented entrepreneurs—with solid ideas, capable teams, and real traction—spend months waiting for investor callbacks. Similar ventures in coastal cities move quickly to funding.</li>
+                    <li><strong>The Central Claim:</strong> In low-access capital markets like Atlanta, knowing <em>which intermediaries to use and how to use them</em> matters as much as the quality of the business idea itself.</li>
+                </ul>
+            </div>
+            <div class="slide-number">2 / 12</div>
+        </div>
+
+        <!-- Slide 2: Research Questions -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Research Questions</div>
+                <div class="slide-subtitle">Two Practical Questions for Low-Capital Markets</div>
+            </div>
+            <div class="slide-content">
+                <div class="method-box">
+                    <h4>Research Question 1: The Founder Strategy</h4>
+                    <p style="font-size: 17px; line-height: 1.7; margin-top: 10px;">How should founders in Atlanta structure their intermediary portfolio strategy to get investor meetings quickly and secure funding?</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>Research Question 2: The Funder Perspective</h4>
+                    <p style="font-size: 17px; line-height: 1.7; margin-top: 10px;">What do investors actually see as the barriers to deploying capital in Atlanta and similar markets?</p>
+                </div>
+
+                <div class="gap-statement" style="margin-top: 30px;">
+                    <p><strong>Key Definitions:</strong></p>
+                    <ul style="margin-top: 15px; line-height: 1.7;">
+                        <li><strong>Low-Access Capital Market:</strong> A region where VC firm density is low, geographic distance creates information gaps, and companies must rely on intermediaries rather than direct connections (Sorenson & Stuart, 2001; Chen et al., 2010).</li>
+                        <li><strong>Intermediary:</strong> Any person or organization that connects founders to funders—accelerators (Techstars), angel groups, mentors, university programs, corporate innovation hubs.</li>
+                        <li><strong>Early-Stage Startups:</strong> Seed or Series A ventures seeking first major institutional investment ($500K-$5M) with working product and initial traction.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide-number">3 / 12</div>
+        </div>
+
+        <!-- Section 2: LITERATURE REVIEW -->
+        <div class="slide section-divider">
+            <h1>Part II</h1>
+            <p>Literature Review</p>
+        </div>
+
+        <!-- Slide 3: Network Theory -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Theoretical Foundation: Network Theory</div>
+                <div class="slide-subtitle">Structural Holes & Weak Ties</div>
+            </div>
+            <div class="slide-content">
+                <div class="lit-box">
+                    <h3>Core Theory: Structural Holes (Burt, 1992)</h3>
+                    <p>Founders and investors exist in separate social networks. The gap between them is a <strong>"structural hole"</strong>—an opportunity for intermediaries to bridge disconnected groups. Entrepreneurs who span these holes gain access to non-redundant information and resources.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Supporting Theory: Weak Ties (Granovetter, 1973)</h3>
+                    <p>Access to distant, diverse contacts ("weak ties") provides more novel information than close, redundant ties. Intermediaries facilitate these weak ties by connecting founders to investors outside their immediate network.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Empirical Evidence (Vissa, 2012)</h3>
+                    <p>Broker diversity improves entrepreneurial outcomes. Founders who strategically build relationships across multiple intermediary types gain access to more and better opportunities than those relying on a single channel.</p>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Gap #1:</strong> Existing research conflates <em>variety</em> (richness—how many types) with <em>balance</em> (evenness—how equally distributed). No study quantifies concentration risk using the Herfindahl-Hirschman Index (HHI) in this context.
+                </div>
+            </div>
+            <div class="slide-number">4 / 12</div>
+        </div>
+
+        <!-- Slide 4: Broker Intermediation -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Broker Intermediation Literature</div>
+                <div class="slide-subtitle">Catalyzing Ties & Adverse Selection</div>
+            </div>
+            <div class="slide-content">
+                <div class="lit-box">
+                    <h3>Core Theory: Catalyzing Ties (Hallen & Eisenhardt, 2012)</h3>
+                    <p>Instead of cold-emailing VCs, founders leverage intermediaries to provide <strong>"warm introductions"</strong>—these catalyzing ties dramatically accelerate access. Intermediaries reduce information asymmetry by vouching for founder quality.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>The Dark Side: Adverse Selection (Yimfor, 2021, 2022)</h3>
+                    <p>Investors fear that only low-quality ventures seek out-of-region funding or use weak intermediaries. This creates a sorting problem: founders using lower-tier brokers may be perceived as worse-quality deals, even if untrue.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Empirical Finding: Timing Matters</h3>
+                    <p>Brokers reduce time-to-funding by approximately <strong>3.2 months</strong> on average. However, broker quality varies significantly by type (accelerators vs. mentors vs. angel groups).</p>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Gap #2:</strong> Research treats brokers as homogeneous. Broker <em>tier</em> effects (national accelerators like Y Combinator vs. regional vs. informal mentors) remain empirically untested. We don't know whether elite broker access is determined by founder credentials or founder preparedness.
+                </div>
+            </div>
+            <div class="slide-number">5 / 12</div>
+        </div>
+
+        <!-- Slide 5: Resource Dependence Theory -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Resource Dependence Theory</div>
+                <div class="slide-subtitle">The Concentration Trap</div>
+            </div>
+            <div class="slide-content">
+                <div class="lit-box">
+                    <h3>Core Theory (Pfeffer & Salancik, 1978)</h3>
+                    <p>When an organization relies on a single, critical supplier for a vital resource, it faces <strong>"hold-up risk"</strong> and loses bargaining power. Dependence on one resource channel creates strategic vulnerability.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Application: Power Imbalance (Casciaro & Piskorski, 2005)</h3>
+                    <p>Concentrated resource dependencies create power imbalances. If a founder's sole path to investors is through one accelerator, and that accelerator's network is misaligned with the founder's sector, the founder is stuck with no alternatives.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>The Concentration Trap</h3>
+                    <p>Many founders make a critical mistake: they find one good intermediary (a mentor who knows several VCs) and put all their energy into that one relationship. This creates hidden risk. <em>What if that mentor's network isn't the best fit? What if they stop helping?</em></p>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Gap #3:</strong> No empirical study has quantified broker concentration risk in the capital access context. We propose using the <strong>Herfindahl-Hirschman Index (HHI)</strong>—a standard measure of market concentration—to measure dependency risk in founder intermediary portfolios.
+                </div>
+            </div>
+            <div class="slide-number">6 / 12</div>
+        </div>
+
+        <!-- Slide 6: Absorptive Capacity -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Absorptive Capacity Theory</div>
+                <div class="slide-subtitle">The Missing Piece: Can You Execute?</div>
+            </div>
+            <div class="slide-content">
+                <div class="lit-box">
+                    <h3>Core Theory (Cohen & Levinthal, 1990)</h3>
+                    <p>It's not enough for a firm to <em>access</em> external knowledge—the firm must possess the <strong>absorptive capacity</strong> to recognize, assimilate, and apply it. Access without capability is wasted opportunity.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Application: Founder Preparedness</h3>
+                    <p>An intermediary gets you the meeting. But once you're sitting across from the investor, <em>the founder has to execute.</em> If the investor asks, "What's your burn rate?" or "What's your customer acquisition cost?" and the founder can't answer, the meeting is over. The great introduction is wasted.</p>
+                </div>
+
+                <div class="lit-box" style="margin-top: 20px;">
+                    <h3>Deliberate Practice (Ericsson et al., 2006)</h3>
+                    <p>Pitching, financial literacy, and business model clarity are <strong>skills developed through deliberate practice</strong>. First-time pitchers ramble; veterans are clear and compelling. Preparedness amplifies the value of network access.</p>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Gap #4:</strong> Network research emphasizes <em>access</em> but ignores whether founders can <strong>convert</strong> access into funding. We don't know if preparedness moderates the relationship between intermediary strategy and outcomes—yet this could explain why identical networks yield different results.
+                </div>
+            </div>
+            <div class="slide-number">7 / 12</div>
+        </div>
+
+        <!-- Slide 7: Integrated Gap Statement -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Integrated Research Gap</div>
+                <div class="slide-subtitle">What Has Not Been Done</div>
+            </div>
+            <div class="slide-content">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-bottom: 30px;">
+                    <h3 style="font-size: 24px; margin-bottom: 15px;">The Four Gaps in the Literature:</h3>
+                    <ol style="font-size: 17px; line-height: 1.8; padding-left: 20px;">
+                        <li><strong>Network theory</strong> conflates variety with balance—no HHI quantification</li>
+                        <li><strong>Broker research</strong> treats intermediaries as homogeneous—tier effects untested</li>
+                        <li><strong>Resource dependence</strong> lacks empirical metrics for concentration risk</li>
+                        <li><strong>Absorptive capacity</strong> is ignored in network access literature</li>
+                    </ol>
+                </div>
+
+                <div class="gap-statement">
+                    <p style="font-size: 18px; line-height: 1.7;"><strong>What This Study Proposes to Do:</strong></p>
+                    <p style="margin-top: 15px; font-size: 17px; line-height: 1.7;">
+                        We will empirically test how broker portfolio <strong>configuration</strong> (richness, evenness, HHI, volume),
+                        broker <strong>tier</strong> access determinants (legitimacy vs. capability pathways), and founder
+                        <strong>preparedness</strong> (conversion ability) interact to shape capital access speed and funding
+                        outcomes in low-capital markets.
+                    </p>
+                    <p style="margin-top: 15px; font-size: 17px; line-height: 1.7;">
+                        This integrates four major theories—network theory (Burt, 1992), broker intermediation (Hallen &
+                        Eisenhardt, 2012), Resource Dependence Theory (Pfeffer & Salancik, 1978), and absorptive capacity
+                        (Cohen & Levinthal, 1990)—into a unified, testable framework.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">8 / 12</div>
+        </div>
+
+        <!-- Section 3: METHODOLOGY -->
+        <div class="slide section-divider">
+            <h1>Part III</h1>
+            <p>Methodology</p>
+        </div>
+
+        <!-- Slide 8: Research Design -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Research Design Overview</div>
+                <div class="slide-subtitle">Mixed-Methods Approach</div>
+            </div>
+            <div class="slide-content">
+                <div class="method-box">
+                    <h4>Sample: 200 Early-Stage Tech Founders</h4>
+                    <ul>
+                        <li><strong>Atlanta:</strong> N = 100 (low VC density: <1 firm per 100K residents)</li>
+                        <li><strong>Austin:</strong> N = 100 (moderate VC density for comparison)</li>
+                        <li><strong>Stage:</strong> Pre-seed through Series A (seeking $500K-$5M)</li>
+                        <li><strong>Status:</strong> Mix of successful and failed fundraises (not just success stories)</li>
+                    </ul>
+                </div>
+
+                <div class="method-box">
+                    <h4>Recruitment Strategy: Multi-Channel</h4>
+                    <ul>
+                        <li><strong>Primary:</strong> Partner with intermediaries (ATDC, Techstars Atlanta, Capital Factory, angel groups) to distribute surveys to current/recent cohorts</li>
+                        <li><strong>Secondary:</strong> Targeted outreach via LinkedIn and Crunchbase to identify founders who fit criteria but may not have used formal intermediaries</li>
+                        <li><strong>Tertiary:</strong> Snowball sampling through interviews</li>
+                    </ul>
+                </div>
+
+                <div class="method-box">
+                    <h4>Qualitative Component: Investor Interviews</h4>
+                    <ul>
+                        <li><strong>N = 20+ active investors</strong> (VCs and angels)</li>
+                        <li><strong>Semi-structured interviews</strong> exploring risk perception, signal value, market quality, and sector focus</li>
+                        <li><strong>Thematic analysis</strong> to test H3 (Signal-and-Search Hypothesis)</li>
+                    </ul>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Statistical Power:</strong> N=200 provides adequate power (β = 0.80) to detect medium effect sizes (Cohen's d = 0.50) in regression models.
+                </div>
+            </div>
+            <div class="slide-number">9 / 12</div>
+        </div>
+
+        <!-- Slide 9: Hypotheses -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Research Hypotheses</div>
+                <div class="slide-subtitle">Four Testable Predictions</div>
+            </div>
+            <div class="slide-content">
+                <ul class="hypothesis-list">
+                    <li><strong>H1a (Wide Net Hypothesis):</strong> Founders who use a greater number of distinct intermediary types (high <em>richness</em>) will secure investor meetings faster and have greater funding success than founders who use fewer types.</li>
+
+                    <li><strong>H1b (Concentration Trap Hypothesis):</strong> Founders whose intermediary introductions are highly concentrated in a single type (high <em>HHI</em>) will take longer to secure meetings and have lower funding success.</li>
+
+                    <li><strong>H2a/b (Preparedness Moderation Hypothesis):</strong> The success of a founder's intermediary strategy is moderated by their preparedness. The positive effects of a diverse portfolio (H1a) and the negative effects of a concentrated one (H1b) will be <strong>strongest</strong> for founders who are highly prepared.</li>
+
+                    <li><strong>H3 (Signal-and-Search Hypothesis):</strong> Investors evaluating Atlanta deals will identify challenges related to (a) validating company quality from a distance (signaling) and (b) the time and cost required to source and vet deals (search costs) as significant barriers to investment.</li>
+                </ul>
+
+                <div class="gap-statement" style="margin-top: 30px;">
+                    <strong>Note:</strong> H1a, H1b, and H2 will be tested quantitatively via regression models. H3 will be tested qualitatively via thematic analysis of investor interviews.
+                </div>
+            </div>
+            <div class="slide-number">10 / 12</div>
+        </div>
+
+        <!-- Slide 10: Variables & Measures -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Variables & Measurement</div>
+                <div class="slide-subtitle">How We Operationalize the Constructs</div>
+            </div>
+            <div class="slide-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Construct</th>
+                            <th>Operationalization</th>
+                            <th>Example Question</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Richness (IV)</strong></td>
+                            <td>Simple count of intermediary types used (1-5)<br>Types: Accelerators, Angel Groups, Mentors, Universities, Corporate</td>
+                            <td>"Which types of intermediaries did you use to get investor introductions?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HHI (IV)</strong></td>
+                            <td>Herfindahl-Hirschman Index:<br>HHI = Σ(share of introductions from type i)²<br>Range: 0.20 (balanced) to 1.0 (all from one type)</td>
+                            <td>"How many investor introductions came from each intermediary type?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preparedness (Moderator)</strong></td>
+                            <td>Composite score from:<br>1. Financial Literacy Quiz (3 questions)<br>2. Pitch Experience (# of pitches delivered)<br>3. Business Model Clarity (1-3 researcher rating)</td>
+                            <td>"A VC asks for your 'runway.' What two key numbers do you need to calculate this?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weeks to Meeting (DV)</strong></td>
+                            <td>Count variable: weeks from first investor contact to first meaningful meeting (20+ min call)</td>
+                            <td>"How many weeks from initial outreach to your first substantive investor conversation?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Funding Success (DV)</strong></td>
+                            <td>Binary (1/0): Did founder successfully raise capital?</td>
+                            <td>"Did you successfully close a funding round? (Yes/No)"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Controls</strong></td>
+                            <td>Insider Status, Sector, Stage, Market (ATL/AUS), Team Size</td>
+                            <td>"Are you a serial founder? Did you attend an elite university?"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slide-number">11 / 12</div>
+        </div>
+
+        <!-- Slide 11: Analysis Plan -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-title">Quantitative Analysis Plan</div>
+                <div class="slide-subtitle">Two-Phase Regression Approach</div>
+            </div>
+            <div class="slide-content">
+                <div class="method-box">
+                    <h4>Phase 1: Main Effects Models (H1a & H1b)</h4>
+                    <p style="margin-top: 10px; font-size: 16px; line-height: 1.7;"><strong>Model 1 (Access Speed):</strong></p>
+                    <ul>
+                        <li><strong>DV:</strong> Weeks_to_Meeting (count data)</li>
+                        <li><strong>Method:</strong> Negative Binomial Regression (preferred over Poisson for over-dispersed count data)</li>
+                        <li><strong>IVs:</strong> Richness, HHI</li>
+                        <li><strong>Controls:</strong> Insider Status, Sector, Stage, Market (ATL/AUS), Team Size</li>
+                        <li><strong>Prediction:</strong> Richness will have negative coefficient (faster access), HHI will have positive coefficient (slower access)</li>
+                    </ul>
+
+                    <p style="margin-top: 20px; font-size: 16px; line-height: 1.7;"><strong>Model 2 (Funding Success):</strong></p>
+                    <ul>
+                        <li><strong>DV:</strong> Raised_Capital (binary: 1/0)</li>
+                        <li><strong>Method:</strong> Logistic Regression</li>
+                        <li><strong>IVs:</strong> Richness, HHI</li>
+                        <li><strong>Controls:</strong> Same as Model 1</li>
+                        <li><strong>Prediction:</strong> Richness will increase odds of funding, HHI will decrease odds</li>
+                    </ul>
+                </div>
+
+                <div class="method-box">
+                    <h4>Phase 2: Moderation Analysis (H2)</h4>
+                    <ul>
+                        <li><strong>Hierarchical approach:</strong> Add Preparedness score and interaction terms (Richness × Preparedness, HHI × Preparedness) to Models 1 & 2</li>
+                        <li><strong>Interpretation:</strong> Significant interaction term supports H2 (preparedness amplifies portfolio effects)</li>
+                        <li><strong>Visualization:</strong> Plot simple slopes at high/low preparedness to show moderation</li>
+                    </ul>
+                </div>
+
+                <div class="gap-statement">
+                    <strong>Qualitative Analysis (H3):</strong> Thematic coding of 20+ investor interviews to identify emergent themes related to signaling barriers, search costs, local market risk, and talent perception. Themes will be categorized and validated against H3.
+                </div>
+            </div>
+            <div class="slide-number">12 / 12</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <div class="slide-indicator" id="indicators"></div>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Initialize indicators
+        const indicatorsContainer = document.getElementById('indicators');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'indicator-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            indicatorsContainer.appendChild(dot);
+        }
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+
+            // Update indicators
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === n);
+            });
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            if (currentSlide < 0) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
